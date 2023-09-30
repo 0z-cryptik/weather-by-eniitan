@@ -1,16 +1,9 @@
 import { useList } from "./stateProvider";
-import { ProgressBar } from "ms-react-progress-bar";
-import 'ms-react-progress-bar/dist/ProgressBar.css'
-import { useState } from "react";
-import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
-import { GiWhirlwind } from "react-icons/gi";
-import { IoThermometer, IoWaterSharp } from "react-icons/io5";
 import { Card } from "./card";
 
 export const TodayF = () => {
 
     const { weather } = useList()
-    const [openMore, setOpenMore] = useState(false)
 
     const barStyle = {
         height: "22px",

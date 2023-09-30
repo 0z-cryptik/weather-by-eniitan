@@ -13,7 +13,7 @@ svg.wth {
   height: 110px;
 }
 
-path {
+path.loader {
   stroke: #9ea1a4;
   stroke-width: 0.25;
   fill: #241E20;
@@ -61,7 +61,7 @@ path {
   }
 }
 
-/* Rain */
+
 .rain {
   position: absolute;
   width: 70px;

@@ -8,9 +8,9 @@ export const CurrentWeather = () => {
     
     return <div>
         <img className='mt-6' src={weather.current.condition.icon} alt={weather.current.condition.text} />
-         <p className='text-2xl'>{weather.current.condition.text}</p>
+        <p className='text-2xl'>{weather.current.condition.text}</p>
          
-         <div className='flex flex-row w-[55%] mt-6'>
+        <div className='flex flex-row w-[55%] mt-6'>
             <p className='text-5xl w-[80%] mt-6'>
                {weather.current.temp_c}ºc
             </p>
@@ -20,7 +20,7 @@ export const CurrentWeather = () => {
                   <IoThermometer className='inline' />
                   Real feel: {weather.current.feelslike_c}ºc
                </p>
-               <p>
+               <p className="text-blue-700">
                   <IoWaterSharp className='inline' />
                   Humidity: {weather.current.humidity}%
                </p>
