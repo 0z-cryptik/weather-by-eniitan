@@ -4,20 +4,17 @@ import axios from 'axios'
 import { DateComp } from './components/dateHandler';
 import { NavBar } from './components/navbar';
 import { Search } from './components/search';
-import { GiWhirlwind } from 'react-icons/gi'
 import { useList } from './components/stateProvider';
 import { TodayF } from './components/todayF';
 import { TomorrowF } from './components/tomorrowF';
 import { ChanceOfRain } from './components/COR';
 import { Loader } from './components/loader';
-import { Link } from 'react-router-dom'
-import { FaIcons, FaSearch } from 'react-icons/fa';
 import { Location } from './components/location';
 import { CurrentWeather } from './components/currentWeather';
 
 const App = () => {
 
-   const { weather, setWeather, setActiveCategory, activeCategory, loading, setLoading, searchTerm, setSearchTerm } = useList()
+   const { weather, setWeather, setActiveCategory, loading, setLoading, searchTerm } = useList()
 
    useEffect(() => {
       navigator.geolocation.getCurrentPosition(success, fail)
