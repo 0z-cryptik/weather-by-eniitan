@@ -20,7 +20,7 @@ export const CurrentWeather = () => {
                   <IoThermometer className='inline' />
                   Real feel: {weather.current.feelslike_c}ºc
                </p>
-               <p className="text-blue-700">
+               <p className="">
                   <IoWaterSharp className='inline' />
                   Humidity: {weather.current.humidity}%
                </p>

@@ -157,7 +157,6 @@ path.loader {
 #card {
   max-height: 12rem;
   overflow: hidden;
-  color: gray;
   transition: max-height .3s linear;
 }
 

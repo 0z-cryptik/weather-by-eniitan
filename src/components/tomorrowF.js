@@ -4,7 +4,7 @@ import { Card } from "./card";
 export const TomorrowF = () => {
     const { weather } = useList()
 
-    return <div className='w-[60%] mt-[3.5rem] mx-auto mb-8'>
+    return <div className='w-[60%] mt-[3.5rem] mx-auto'>
         <h1 className='border-b border-b-black pb-2'>TOMORROW'S FORECAST</h1>
         <section>
             <Card 
