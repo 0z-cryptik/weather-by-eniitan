@@ -8,12 +8,12 @@ export const ChanceOfRain = ({val}) => {
         height: "22px",
         borderRadius: "20px",
         labelSize: "12px",
-        barColor: "rgb(59 130 246)",
+        barColor: "#5E49FD",
         containerColor: "#dddddd",
         labelAlignment: "right"
     };
 
-    return <div className='flex flex-row text-xl mx-auto w-[50%] mt-[5rem]'>
+    return <div className='flex flex-row text-xl mx-auto w-[50%] mt-[3rem]'>
         Chance of rain today: 
         <span className='flex-grow'>
             <ProgressBar value={val} options={barStyle} />

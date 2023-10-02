@@ -10,22 +10,22 @@ export const CurrentWeather = () => {
         <img className='mt-6' src={weather.current.condition.icon} alt={weather.current.condition.text} />
         <p className='text-2xl'>{weather.current.condition.text}</p>
          
-        <div className='flex flex-row w-[55%] mt-6'>
-            <p className='text-5xl w-[80%] mt-6'>
+        <div className='mt-6'>
+            <p className='text-5xl mt-6'>
                {weather.current.temp_c}ºc
             </p>
 
-            <section className='text-left'>
-               <p>
+            <section className='flex flex-row text-xl w-[60%] mt-8'>
+               <p className="flex-grow">
                   <IoThermometer className='inline' />
                   Real feel: {weather.current.feelslike_c}ºc
                </p>
-               <p className="">
+               <p className="flex-grow">
                   <IoWaterSharp className='inline' />
                   Humidity: {weather.current.humidity}%
                </p>
-               <p>
-                  <GiWhirlwind className='inline' /> 
+               <p className="flex-grow">
+                  <GiWhirlwind className='inline mr-1' /> 
                   wind: {weather.current.wind_kph}km/h
                </p>
             </section>

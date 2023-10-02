@@ -17,7 +17,7 @@ export const DateComp = () => {
         const hour = dateObj.getHours()
         const minute = dateObj.getMinutes()
     
-        return `${daysArr[dayOfWeek]}, ${day} ${monthArr[month]} ${year} | Local time: ${hour}:${minute < 10 ? `0${minute}` : minute}`
+        return `${daysArr[dayOfWeek]}, ${day} ${monthArr[month]} ${year} | Local time: ${hour < 10 ? `0${hour}` : hour}:${minute < 10 ? `0${minute}` : minute}`
     }
 
     return <p className='my-5'>
