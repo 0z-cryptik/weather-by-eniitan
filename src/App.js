@@ -105,7 +105,7 @@ const App = () => {
       <Loader />
    </center>
 
-   return <div className='bg-gradient-to-b from-[#5885AF] via-[#73abfa] to-[#a2b4cb] pb-8 text-white'>
+   return <div className='bg-[#395E66] text-white pb-8 '>
       <center>
          <NavBar />
          <Search onSubmit={onSearchSubmit}/>
@@ -122,3 +122,6 @@ const App = () => {
 
 
 export default App
+
+
+//bg-gradient-to-b from-[#5885AF] via-[#73abfa] to-[#a2b4cb]
