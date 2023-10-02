@@ -15,20 +15,29 @@ export const CurrentWeather = () => {
                {weather.current.temp_c}ºc
             </p>
 
-            <section className='flex flex-row text-xl w-[60%] mt-8'>
-               <p className="flex-grow">
-                  <IoThermometer className='inline' />
-                  Real feel: {weather.current.feelslike_c}ºc
-               </p>
-               <p className="flex-grow">
-                  <IoWaterSharp className='inline' />
-                  Humidity: {weather.current.humidity}%
-               </p>
-               <p className="flex-grow">
-                  <GiWhirlwind className='inline mr-1' /> 
-                  wind: {weather.current.wind_kph}km/h
-               </p>
-            </section>
+            <div className='flex flex-row border py-5 bg-[#007EA7] rounded-xl text-xl w-[60%] mt-8'>
+               <section className="flex-grow border-r">
+                  <p className="font-bold">{weather.current.feelslike_c}ºc</p>
+                  <span>
+                     <IoThermometer className='inline' />
+                     Real feel
+                  </span>
+               </section>
+               <section className="flex-grow border-r">
+                  <p className="font-bold">{weather.current.humidity}%</p>
+                  <span>
+                     <IoWaterSharp className='inline' />
+                     Humidity
+                  </span>
+               </section>
+               <section className="flex-grow">
+                  <p className="font-bold">{weather.current.wind_kph}km/h</p>
+                  <span>
+                     <GiWhirlwind className='inline mr-1' /> 
+                     wind
+                  </span>
+               </section>
+            </div>
         </div>
     </div>
 }

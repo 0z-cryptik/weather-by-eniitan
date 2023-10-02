@@ -15,7 +15,7 @@ export const TodayF = () => {
     };
 
     return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b border-b-black pb-2'>TODAY'S FORECAST</h1>
+        <h1 className='border-b-2 text-2xl pb-2'>TODAY'S FORECAST</h1>
         <section>
             <Card 
                 src={weather.forecast.forecastday[0].hour[10].condition.icon} 

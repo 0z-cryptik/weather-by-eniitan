@@ -11,7 +11,7 @@ export const DateComp = () => {
         const year = dateObj.getFullYear()
         const day = dateObj.getDate()
         const dayOfWeek =  dateObj.getDay()
-        const daysArr = ['sunday', 'monday', 'tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        const daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         const month = dateObj.getMonth()
         const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         const hour = dateObj.getHours()
