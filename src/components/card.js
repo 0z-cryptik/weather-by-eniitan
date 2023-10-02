@@ -18,7 +18,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
         labelAlignment: "right"
     };
 
-    return <div id="card" className={`${openMore ? 'expanded' : ''} w-full relative border mt-2 text-center bg-[#007EA7] text-white rounded-xl pt-8`}>
+    return <div id="card" className={`${openMore ? 'expanded' : ''} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl pt-8`}>
         <div className={`flex flex-row ${openMore ? 'pb-3' : 'pb-5'}`}>
             <p className="text-xl font-bold w-1/4 my-auto">{time}</p>
             <div className="flex flex-col w-1/4">
@@ -36,7 +36,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
 
         <div id="extra" className={`flex flex-row mb-10 ${openMore ? '' : 'opacity-0'}`}>
             <span className="w-1/3 text-center">
-                <GiWhirlwind className="inline"/>
+                <GiWhirlwind className="inline mr-1"/>
                 Wind speed: {windSpeed}km/h
             </span>
             <span className="w-1/3 text-center">

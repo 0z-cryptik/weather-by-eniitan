@@ -8,7 +8,7 @@ export const ChanceOfRain = ({val}) => {
         height: "22px",
         borderRadius: "20px",
         labelSize: "12px",
-        barColor: "#5E49FD",
+        barColor: "#006b8f",
         containerColor: "#dddddd",
         labelAlignment: "right"
     };

@@ -38,19 +38,19 @@ export const NavBar = () => {
     }
 
     return <nav className="text-2xl py-6">
-        <span onClick={() => searchWeather('tokyo')} className={`mr-[3rem] ${activeCategory == 'tokyo' ? 'text-blue-500' : 'hover:text-blue-500'} cursor-pointer`}>
+        <span onClick={() => searchWeather('tokyo')} className={`mr-[3rem] ${activeCategory == 'tokyo' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Tokyo
         </span>
-        <span onClick={() => searchWeather('london')} className={`mr-[3rem] ${activeCategory == 'london' ? 'text-blue-500' : 'hover:text-blue-500'} cursor-pointer`}>
+        <span onClick={() => searchWeather('london')} className={`mr-[3rem] ${activeCategory == 'london' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             London
         </span>
-        <span onClick={() => searchWeather('paris')} className={`mr-[3rem] ${activeCategory == 'paris' ? 'text-blue-500' : 'hover:text-blue-500'} cursor-pointer`}>
+        <span onClick={() => searchWeather('paris')} className={`mr-[3rem] ${activeCategory == 'paris' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Paris
         </span>
-        <span onClick={() => searchWeather('sydney')} className={`mr-[3rem] ${activeCategory == 'sydney' ? 'text-blue-500' : 'hover:text-blue-500'} cursor-pointer`}>
+        <span onClick={() => searchWeather('sydney')} className={`mr-[3rem] ${activeCategory == 'sydney' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Sydney
         </span>
-        <span onClick={() => searchWeather('istanbul')} className={`${activeCategory == 'istanbul' ? 'text-blue-500' : 'hover:text-blue-500'} cursor-pointer`}>
+        <span onClick={() => searchWeather('istanbul')} className={`${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Istanbul
         </span>
     </nav>
