@@ -4,7 +4,7 @@ import ToggleButton from 'react-toggle-button'
 
 export const NavBar = () => {
 
-    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm, farenheight, setFarenheight } = useList()
+    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm, fahrenheit, setFahrenheit } = useList()
 
     const searchWeather = (place) => {
         setActiveCategory(place)
@@ -56,7 +56,7 @@ export const NavBar = () => {
             Istanbul
         </span>
         <span className="absolute right-[5%] top-7">
-            <ToggleButton value = {farenheight} onToggle={() => setFarenheight(!farenheight)} activeLabel='ºC' inactiveLabel='ºF'       colors={{
+            <ToggleButton value = {fahrenheit} onToggle={() => setFahrenheit(!fahrenheit)} activeLabel='ºC' inactiveLabel='ºF'       colors={{
                 activeThumb: {
                     base: 'rgb(62,130,247)',
                 },

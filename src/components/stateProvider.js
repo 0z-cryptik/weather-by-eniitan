@@ -10,9 +10,9 @@ export const StateProvider = ({children}) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [loading, setLoading] = useState(true)
     const [hour, setHour] = useState(0)
-    const [farenheight, setFarenheight] = useLocalStorage('farengheit', false)
+    const [fahrenheit, setFahrenheit] = useLocalStorage('fahrenheit', false)
 
-    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour, farenheight, setFarenheight}}>
+    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour, fahrenheit, setFahrenheit}}>
         {children}
     </ListContext.Provider>
 }

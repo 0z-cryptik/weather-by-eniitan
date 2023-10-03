@@ -4,7 +4,7 @@ import { GiWhirlwind } from "react-icons/gi";
 
 export const CurrentWeather = () => {
 
-    const { weather, farenheight } = useList()
+    const { weather, fahrenheit } = useList()
     
     return <div>
         <img className='mt-6' src={weather.current.condition.icon} alt={weather.current.condition.text} />
@@ -12,13 +12,13 @@ export const CurrentWeather = () => {
          
         <div className='mt-6'>
             <p className='text-5xl mt-6'>
-               {farenheight ? `${weather.current.temp_f}ºF` : `${weather.current.temp_c}ºc`}
+               {fahrenheit ? `${weather.current.temp_f}ºF` : `${weather.current.temp_c}ºc`}
             </p>
 
             <div className='flex flex-row border py-5 bg-[#518490] text-white rounded-xl text-xl w-[60%] mt-8'>
                <section className="flex-grow border-r">
                   <p className="font-bold">
-                     {farenheight ? `${weather.current.feelslike_f}ºF` : `${weather.current.feelslike_c}ºc`}
+                     {fahrenheit ? `${weather.current.feelslike_f}ºF` : `${weather.current.feelslike_c}ºc`}
                   </p>
                   <span>
                      <IoThermometer className='inline' />

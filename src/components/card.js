@@ -8,7 +8,7 @@ import { useList } from "./stateProvider";
 
 export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humidity}) => {
 
-    const { farenheight } = useList()
+    const { fahrenheit } = useList()
     const [openMore, setOpenMore] = useState(false)
 
     const barStyle = {
@@ -27,7 +27,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                 <img src={src} className="w-[30%] mx-auto" />
                 <p className="text-sm">{condition}</p>
                 <p className="mt-2 text-xl">
-                    {deg}º{`${farenheight ? 'F' : 'c'}`}
+                    {deg}º{`${fahrenheit ? 'F' : 'c'}`}
                 </p>
             </div>
             <div className="flex-grow my-auto ml-3">
@@ -45,7 +45,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
             </span>
             <span className="w-1/3 text-center">
                 <IoThermometer className="inline" />
-                Real-feel: {realFeel}º{`${farenheight ? 'F' : 'c'}`}
+                Real-feel: {realFeel}º{`${fahrenheit ? 'F' : 'c'}`}
             </span>
             <span className="w-1/3 text-center">
                 <IoWaterSharp className="inline" />

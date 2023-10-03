@@ -6,7 +6,9 @@ export const DateComp = () => {
     
     const { weather, setHour } = useList()
 
-    useEffect(() => {hourHandler(dateHandler(weather.location.localtime)[1])}, [])
+    useEffect(() => {
+        hourHandler(dateHandler(weather.location.localtime)[1])
+    }, [])
 
     const hourHandler = (hour) => {
         setHour(hour)
