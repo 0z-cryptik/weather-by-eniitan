@@ -252,8 +252,9 @@ export const Other = () => {
                 condition={weather.forecast.forecastday[0].hour[hour + 4].condition.text} 
                 time={`${hour + 4}:00`} 
                 deg={farenheight ? `${weather.forecast.forecastday[0].hour[hour + 4].temp_f}` : `${weather.forecast.forecastday[0].hour[hour + 4].temp_c}`} 
+                realFeel={farenheight ? `${weather.forecast.forecastday[0].hour[hour + 4].feelslike_f}` : `${weather.forecast.forecastday[0].hour[hour + 4].feelslike_c}`}
                 cor={weather.forecast.forecastday[0].hour[hour + 4].chance_of_rain} 
-                realFeel={farenheight ? `${weather.forecast.forecastday[0].hour[hour + 4].feelslike_f}` : `${weather.forecast.forecastday[0].hour[hour + 4].feelslike_c}`} 
+                 
                 windSpeed={weather.forecast.forecastday[0].hour[hour + 4].wind_kph} 
                 humidity={weather.forecast.forecastday[0].hour[hour + 4].humidity} 
             />

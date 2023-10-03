@@ -1,19 +1,9 @@
 import { useList } from "./stateProvider";
-import { Card } from "./card";
 import { F1Forecast, F2Forecast, F3Forecast, F4Forecast, F5Forecast, Other } from "./TFHandler";
 
 export const TodayF = () => {
 
-    const { weather, hour } = useList()
-
-    const barStyle = {
-        height: "22px",
-        borderRadius: "20px",
-        labelSize: "12px",
-        barColor: "rgb(59 130 246)",
-        containerColor: "#dddddd",
-        labelAlignment: "right"
-    };
+    const { hour } = useList()
 
     if (hour >= 14 && hour < 19) return <F5Forecast />
 

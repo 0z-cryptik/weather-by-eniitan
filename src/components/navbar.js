@@ -1,5 +1,6 @@
 import { useList } from "./stateProvider"
 import axios from "axios"
+import ToggleButton from 'react-toggle-button'
 
 export const NavBar = () => {
 
@@ -9,7 +10,7 @@ export const NavBar = () => {
         setActiveCategory(place)
         setLoading(true)
         setSearchTerm(place)
-        
+
         const weatherReq = {
            method: 'GET',
            url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
@@ -38,7 +39,7 @@ export const NavBar = () => {
         clickFetch()
     }
 
-    return <nav className="text-2xl py-6">
+    return <nav className="text-2xl flex flex-row justify-center relative py-6">
         <span onClick={() => searchWeather('tokyo')} className={`mr-[3rem] ${activeCategory == 'tokyo' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Tokyo
         </span>
@@ -54,6 +55,23 @@ export const NavBar = () => {
         <span onClick={() => searchWeather('istanbul')} className={`mr-[3rem] ${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Istanbul
         </span>
-        <button onClick={() => setFarenheight(!farenheight)} className="bg-gray-400 p-2">F</button>
+        <span className="absolute right-[5%] top-7">
+            <ToggleButton value = {farenheight} onToggle={() => setFarenheight(!farenheight)} activeLabel='ºC' inactiveLabel='ºF'       colors={{
+                activeThumb: {
+                    base: 'rgb(62,130,247)',
+                },
+                inactiveThumb: {
+                    base: 'rgb(62,130,247)',
+                },
+                active: {
+                    base: 'rgb(65,66,68)',
+                    hover: 'rgb(65,66,68)',
+                },
+                inactive: {
+                    base: 'rgb(65,66,68)',
+                    hover: 'rgb(65,66,68)',
+                }
+            }} />
+        </span>
     </nav>
 }

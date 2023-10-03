@@ -21,6 +21,7 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
+    "react-toggle-button": "^2.2.0",
     "react-window": "^1.8.9",
     "tailwindcss": "^3.3.2",
     "uuidv4": "^6.2.13",
