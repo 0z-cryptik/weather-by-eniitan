@@ -1,10 +1,18 @@
 import { useList } from "./stateProvider"
-import React from "react"
+import React, { useEffect } from "react"
 
 
 export const DateComp = () => {
     
-    const { weather } = useList()
+    const { weather, setHour } = useList()
+
+    useEffect(() => {hourHandler(weather.location.localtime)}, [])
+
+    const hourHandler = (date) => {
+        const dateObj = new Date(date)
+        const hour = dateObj.getHours()
+        setHour(hour)
+    }
 
     const dateHandler = (date) => {
         const dateObj = new Date(date)
@@ -24,3 +32,4 @@ export const DateComp = () => {
         {dateHandler(weather.location.localtime)}
     </p>
 }
+

@@ -1,9 +1,10 @@
 import { useList } from "./stateProvider";
 import { Card } from "./card";
+import { F1Forecast, F2Forecast, F3Forecast, F4Forecast, F5Forecast, Other } from "./TFHandler";
 
 export const TodayF = () => {
 
-    const { weather } = useList()
+    const { weather, hour } = useList()
 
     const barStyle = {
         height: "22px",
@@ -14,63 +15,17 @@ export const TodayF = () => {
         labelAlignment: "right"
     };
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>TODAY'S FORECAST</h1>
-        <section>
-            <Card 
-                src={weather.forecast.forecastday[0].hour[10].condition.icon} 
-                condition={weather.forecast.forecastday[0].hour[10].condition.text} 
-                time={'10:00'} 
-                deg={weather.forecast.forecastday[0].hour[10].temp_c} 
-                cor={weather.forecast.forecastday[0].hour[10].chance_of_rain} 
-                realFeel={weather.forecast.forecastday[0].hour[10].feelslike_c} 
-                windSpeed={weather.forecast.forecastday[0].hour[10].wind_kph} 
-                humidity={weather.forecast.forecastday[0].hour[10].humidity} 
-            />
+    if (hour >= 14 && hour < 19) return <F5Forecast />
 
-            <Card 
-                src={weather.forecast.forecastday[0].hour[12].condition.icon} 
-                condition={weather.forecast.forecastday[0].hour[12].condition.text} 
-                time={'12:00'} 
-                deg={weather.forecast.forecastday[0].hour[12].temp_c} 
-                cor={weather.forecast.forecastday[0].hour[12].chance_of_rain} 
-                realFeel={weather.forecast.forecastday[0].hour[12].feelslike_c} 
-                windSpeed={weather.forecast.forecastday[0].hour[12].wind_kph} 
-                humidity={weather.forecast.forecastday[0].hour[12].humidity} 
-            />
+    if (hour == 19) return <F4Forecast />
 
-            <Card 
-                src={weather.forecast.forecastday[0].hour[14].condition.icon} 
-                condition={weather.forecast.forecastday[0].hour[14].condition.text} 
-                time={'14:00'} 
-                deg={weather.forecast.forecastday[0].hour[14].temp_c} 
-                cor={weather.forecast.forecastday[0].hour[14].chance_of_rain} 
-                realFeel={weather.forecast.forecastday[0].hour[14].feelslike_c} 
-                windSpeed={weather.forecast.forecastday[0].hour[14].wind_kph} 
-                humidity={weather.forecast.forecastday[0].hour[14].humidity} 
-            />
+    if (hour == 20) return <F3Forecast />
 
-            <Card 
-                src={weather.forecast.forecastday[0].hour[16].condition.icon} 
-                condition={weather.forecast.forecastday[0].hour[16].condition.text} 
-                time={'16:00'} 
-                deg={weather.forecast.forecastday[0].hour[16].temp_c} 
-                cor={weather.forecast.forecastday[0].hour[16].chance_of_rain} 
-                realFeel={weather.forecast.forecastday[0].hour[16].feelslike_c} 
-                windSpeed={weather.forecast.forecastday[0].hour[16].wind_kph} 
-                humidity={weather.forecast.forecastday[0].hour[16].humidity} 
-            />
+    if (hour == 21) return <F2Forecast />
 
-            <Card 
-                src={weather.forecast.forecastday[0].hour[18].condition.icon} 
-                condition={weather.forecast.forecastday[0].hour[18].condition.text} 
-                time={'18:00'} 
-                deg={weather.forecast.forecastday[0].hour[18].temp_c} 
-                cor={weather.forecast.forecastday[0].hour[18].chance_of_rain} 
-                realFeel={weather.forecast.forecastday[0].hour[18].feelslike_c} 
-                windSpeed={weather.forecast.forecastday[0].hour[18].wind_kph} 
-                humidity={weather.forecast.forecastday[0].hour[18].humidity} 
-            />
-        </section>    
-    </div>
+    if (hour == 22) return <F1Forecast />
+
+    if (hour == 23) return <div className="hidden"></div>
+
+    return <Other />
 }

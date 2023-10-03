@@ -8,8 +8,9 @@ export const StateProvider = ({children}) => {
     const [activeCategory, setActiveCategory] = useState('')
     const [searchTerm, setSearchTerm] = useState('')
     const [loading, setLoading] = useState(true)
+    const [hour, setHour] = useState(0)
 
-    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading}}>
+    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour}}>
         {children}
     </ListContext.Provider>
 }
