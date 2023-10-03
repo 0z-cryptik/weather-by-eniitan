@@ -4,9 +4,11 @@ import 'ms-react-progress-bar/dist/ProgressBar.css'
 import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
 import { GiWhirlwind } from "react-icons/gi";
 import { IoThermometer, IoWaterSharp } from "react-icons/io5";
+import { useList } from "./stateProvider";
 
 export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humidity}) => {
 
+    const { farenheight } = useList()
     const [openMore, setOpenMore] = useState(false)
 
     const barStyle = {
@@ -24,7 +26,9 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
             <div className="flex flex-col w-1/4">
                 <img src={src} className="w-[30%] mx-auto" />
                 <p className="text-sm">{condition}</p>
-                <p className="mt-2 text-xl">{deg}ºc</p>
+                <p className="mt-2 text-xl">
+                    {deg}º{`${farenheight ? 'F' : 'c'}`}
+                </p>
             </div>
             <div className="flex-grow my-auto ml-3">
                 <p className="text-left ml-3">chance of rain:</p>
@@ -41,7 +45,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
             </span>
             <span className="w-1/3 text-center">
                 <IoThermometer className="inline" />
-                Real-feel: {realFeel}ºc
+                Real-feel: {realFeel}º{`${farenheight ? 'F' : 'c'}`}
             </span>
             <span className="w-1/3 text-center">
                 <IoWaterSharp className="inline" />

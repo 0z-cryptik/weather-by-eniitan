@@ -3,12 +3,13 @@ import axios from "axios"
 
 export const NavBar = () => {
 
-    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm } = useList()
+    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm, farenheight, setFarenheight } = useList()
 
     const searchWeather = (place) => {
         setActiveCategory(place)
         setLoading(true)
         setSearchTerm(place)
+        
         const weatherReq = {
            method: 'GET',
            url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
@@ -50,8 +51,9 @@ export const NavBar = () => {
         <span onClick={() => searchWeather('sydney')} className={`mr-[3rem] ${activeCategory == 'sydney' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Sydney
         </span>
-        <span onClick={() => searchWeather('istanbul')} className={`${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+        <span onClick={() => searchWeather('istanbul')} className={`mr-[3rem] ${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Istanbul
         </span>
+        <button onClick={() => setFarenheight(!farenheight)} className="bg-gray-400 p-2">F</button>
     </nav>
 }
