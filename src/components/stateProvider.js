@@ -1,4 +1,5 @@
 import React, {useContext, createContext, useState} from "react";
+import { useLocalStorage } from '@uidotdev/usehooks'
 
 const ListContext = createContext()
 export const useList = () => useContext(ListContext)
@@ -9,7 +10,7 @@ export const StateProvider = ({children}) => {
     const [searchTerm, setSearchTerm] = useState('')
     const [loading, setLoading] = useState(true)
     const [hour, setHour] = useState(0)
-    const [farenheight, setFarenheight] = useState(false)
+    const [farenheight, setFarenheight] = useLocalStorage('farengheit', false)
 
     return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour, farenheight, setFarenheight}}>
         {children}
