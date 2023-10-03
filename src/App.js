@@ -97,13 +97,19 @@ const App = () => {
       }
    } 
    
-   if (!weather) return <Loader />
- 
-   if (loading) return <center>
-      <NavBar />
-      <Search onSubmit={onSearchSubmit}/>
+   if (!weather) return <div className='h-[100vh] w-[100vw] bg-[#395E66]'>
       <Loader />
-   </center>
+   </div>
+ 
+   if (loading) return <div className='bg-[#395E66] text-white pb-8 overflow-hidden'>
+      <center>
+         <NavBar />
+         <Search onSubmit={onSearchSubmit}/>
+         <div className='bg-[#395E66] w-[100vw] h-[100vh]'>
+            <Loader />
+         </div>
+      </center>
+   </div>
 
    return <div className='bg-[#395E66] text-white pb-8 '>
       <center>
