@@ -11,10 +11,11 @@ import { ChanceOfRain } from './components/COR';
 import { Loader } from './components/loader';
 import { Location } from './components/location';
 import { CurrentWeather } from './components/currentWeather';
+import { BadReq, NoNetwork, OtherError } from './components/errorComps';
 
 const App = () => {
 
-   const { weather, setWeather, setActiveCategory, loading, setLoading, searchTerm } = useList()
+   const { weather, setWeather, setActiveCategory, loading, setLoading, searchTerm, error, setError } = useList()
 
    useEffect(() => {
       navigator.geolocation.getCurrentPosition(success, fail)
@@ -44,6 +45,7 @@ const App = () => {
             setWeather(response.data)
             setLoading(false)
          } catch (error) {
+            setError(error)
             console.error(error);
             setLoading(false)
          }
@@ -77,6 +79,7 @@ const App = () => {
          setWeather(response.data)
          setLoading(false)
       } catch (error) {
+         setError(error)
          console.error(error);
          setLoading(false)
       }
@@ -84,6 +87,7 @@ const App = () => {
 
    const onSearchSubmit = async (e) => {
       e.preventDefault()
+      setError('')
       setLoading(true)
       setActiveCategory('')
       try {
@@ -92,10 +96,27 @@ const App = () => {
          setWeather(response.data)
          setLoading(false)
       } catch (error) {
+         setError(error)
          console.error(error);
          setLoading(false)
       }
    } 
+
+   if (error){
+      if (error.response.status == 400) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden'>
+         <center>
+            <NavBar />
+            <Search onSubmit={onSearchSubmit}/>
+            <div className='h-[75.2vh] flex items-center justify-center text-2xl'>
+              We do not have any data on that location, please crosscheck your spelling or search for another location
+            </div>
+         </center>
+      </div>
+
+      if (error.code == "ERR_NETWORK") return <NoNetwork />
+
+      return <OtherError />
+   }
    
    if (!weather) return <div className='h-[100vh] w-[100vw] bg-[#395E66]'>
       <Loader />

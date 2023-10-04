@@ -11,8 +11,9 @@ export const StateProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [hour, setHour] = useState(0)
     const [fahrenheit, setFahrenheit] = useLocalStorage('fahrenheit', false)
+    const [error, setError] = useState('')
 
-    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour, fahrenheit, setFahrenheit}}>
+    return <ListContext.Provider value={{weather, setWeather, activeCategory, setActiveCategory, searchTerm, setSearchTerm, loading, setLoading, hour, setHour, fahrenheit, setFahrenheit, error, setError}}>
         {children}
     </ListContext.Provider>
 }

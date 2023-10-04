@@ -8,7 +8,7 @@ export const CurrentWeather = () => {
     
     return <div>
         <img className='mt-6' src={weather.current.condition.icon} alt={weather.current.condition.text} />
-        <p className='text-2xl'>{weather.current.condition.text}</p>
+        <p className='text-2xl w-[60%]'>{weather.current.condition.text}</p>
          
         <div className='mt-6'>
             <p className='text-5xl mt-6'>

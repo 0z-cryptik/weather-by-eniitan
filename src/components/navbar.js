@@ -4,10 +4,11 @@ import ToggleButton from 'react-toggle-button'
 
 export const NavBar = () => {
 
-    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm, fahrenheit, setFahrenheit } = useList()
+    const { setWeather, activeCategory, setActiveCategory, setLoading, setSearchTerm, fahrenheit, setFahrenheit, setError } = useList()
 
     const searchWeather = (place) => {
         setActiveCategory(place)
+        setError('')
         setLoading(true)
         setSearchTerm(place)
 
