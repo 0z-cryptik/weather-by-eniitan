@@ -20,6 +20,15 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
         labelAlignment: "right"
     };
 
+    const phoneBarStyle = {
+        height: "15px",
+        borderRadius: "20px",
+        labelSize: "9px",
+        barColor: "rgb(59 130 246)",
+        containerColor: "#dddddd",
+        labelAlignment: "right"
+    }
+
     return <div className={`transition-[max-height] duration-200 ease-in ${openMore ? 'lg:max-h-[18rem] max-h-[9rem]' : 'lg:max-h-[12.3rem] max-h-[6rem]'} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl  overflow-hidden lg:pt-8 pt-2`}>
         <div className={`flex flex-row ${openMore ? 'pb-3' : 'pb-5'}`}>
             <p className="lg:text-xl text-lg font-bold w-1/4 my-auto">{time}</p>
@@ -30,9 +39,14 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                     {deg}º{`${fahrenheit ? 'F' : 'c'}`}
                 </p>
             </div>
-            <div className="flex-grow my-auto ml-3">
-                <p className="text-left text-xs lg:text-base ml-3">chance of rain:</p>
+            <div className="flex-grow hidden lg:block my-auto ml-3">
+                <p className="text-left lg:text-base ml-3">chance of rain:</p>
                 <ProgressBar value={cor} options={barStyle} />
+            </div>
+
+            <div className="flex-grow block lg:hidden my-auto ml-3">
+                <p className="text-left text-xs ml-3">chance of rain:</p>
+                <ProgressBar value={cor} options={phoneBarStyle} />
             </div>
         </div>
 
