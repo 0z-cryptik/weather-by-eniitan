@@ -5,8 +5,8 @@ import { Card } from "./card";
 export const F5Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the next 5 hours</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the next 5 hours</h1>
         <section>
 
             <Card 
@@ -74,8 +74,8 @@ export const F5Forecast = () => {
 export const F4Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the next 4 hours</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the next 4 hours</h1>
         <section>
 
             <Card 
@@ -130,8 +130,8 @@ export const F4Forecast = () => {
 export const F3Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the next 3 hours</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the next 3 hours</h1>
         <section>
 
             <Card 
@@ -175,8 +175,8 @@ export const F3Forecast = () => {
 export const F2Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the next 2 hours</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the next 2 hours</h1>
         <section>
 
             <Card 
@@ -209,8 +209,8 @@ export const F2Forecast = () => {
 export const F1Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the next 1 hour</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the next 1 hour</h1>
         <section>
 
             <Card 
