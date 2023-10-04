@@ -105,7 +105,7 @@ const App = () => {
       <center>
          <NavBar />
          <Search onSubmit={onSearchSubmit}/>
-         <div className='bg-[#395E66] w-[100vw] h-[75.2vh] flex items-center justify-center'>
+         <div className='w-[100vw] h-[75.2vh] flex'>
             <Loader />
          </div>
       </center>
