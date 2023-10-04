@@ -101,7 +101,7 @@ const App = () => {
       <Loader />
    </div>
  
-   if (loading) return <div className='bg-[#395E66] text-white pb-8 overflow-hidden'>
+   if (loading) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden'>
       <center>
          <NavBar />
          <Search onSubmit={onSearchSubmit}/>
