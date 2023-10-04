@@ -13,11 +13,30 @@ export const ChanceOfRain = ({val}) => {
         labelAlignment: "right"
     };
 
-    return <div className='flex flex-row text-xl mx-auto w-[50%] mt-[3rem]'>
-        Chance of rain today: 
-        <span className='flex-grow'>
+    const phoneBarStyle = {
+        height: "15px",
+        borderRadius: "20px",
+        labelSize: "9px",
+        barColor: "#33545b",
+        containerColor: "#dddddd",
+        labelAlignment: "right"
+    }
+
+    return <div className='flex flex-row lg:text-xl mx-auto lg:w-[50%] w-[85%] lg:mt-[3rem] mt-[1.5rem] '>
+        <span className="text-sm lg:text-xl ml-3">
+            Chance of rain today: 
+        </span>
+
+        <span className='flex-grow hidden lg:block'>
             <ProgressBar value={val} options={barStyle} />
         </span>
+
+        <span className="flex-grow -mt-1 lg:hidden">
+            <ProgressBar value={val} options={phoneBarStyle} />
+        </span>
+
     </div>
 }
+
+/* */
 

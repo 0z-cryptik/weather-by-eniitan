@@ -20,7 +20,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
         labelAlignment: "right"
     };
 
-    return <div id="card" className={`${openMore ? 'expanded' : ''} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl pt-8`}>
+    return <div id="card" className={`${openMore ? 'expanded' : ''} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl lg:pt-8 pt-4`}>
         <div className={`flex flex-row ${openMore ? 'pb-3' : 'pb-5'}`}>
             <p className="text-xl font-bold w-1/4 my-auto">{time}</p>
             <div className="flex flex-col w-1/4">
@@ -31,7 +31,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                 </p>
             </div>
             <div className="flex-grow my-auto ml-3">
-                <p className="text-left ml-3">chance of rain:</p>
+                <p className="text-left text-xs lg:text-base ml-3">chance of rain:</p>
                 <ProgressBar value={cor} options={barStyle} />
             </div>
         </div>
@@ -39,17 +39,34 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
         <BsChevronDoubleDown id="arrows" onClick={() => setOpenMore(!openMore)} className={`cursor-pointer absolute bottom-3 left-[49%] right-[49%] w-[2%] ${openMore ? 'rotate-180' : 'z-10'}`} />
 
         <div id="extra" className={`flex flex-row mb-10 ${openMore ? '' : 'opacity-0'}`}>
-            <span className="w-1/3 text-center">
-                <GiWhirlwind className="inline mr-1"/>
-                Wind speed: {windSpeed}km/h
+            <span className="w-1/3 flex flex-col text-center text-xs lg:text-base">
+                <span className="order-2">
+                    <GiWhirlwind className="inline mr-1"/>
+                    Wind speed
+                </span>
+                <span className="order-1">
+                    {windSpeed}km/h
+                </span>
             </span>
-            <span className="w-1/3 text-center">
-                <IoThermometer className="inline" />
-                Real-feel: {realFeel}º{`${fahrenheit ? 'F' : 'c'}`}
+
+            <span className="w-1/3 flex flex-col text-center text-xs lg:text-base">
+                <span className="order-2">
+                    <IoThermometer className="inline" />
+                    Real-feel
+                </span>
+                <span className="order-1">
+                    {realFeel}º{`${fahrenheit ? 'F' : 'c'}`}
+                </span>
             </span>
-            <span className="w-1/3 text-center">
-                <IoWaterSharp className="inline" />
-                Humidity: {humidity}%
+
+            <span className="w-1/3 flex flex-col text-center text-xs lg:text-base">
+                <span className="order-2">
+                    <IoWaterSharp className="inline" />
+                    Humidity
+                </span>
+                <span className="order-1">
+                    {humidity}%
+                </span>
             </span>
         </div>
     </div>

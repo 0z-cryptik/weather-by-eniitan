@@ -15,7 +15,7 @@ export const CurrentWeather = () => {
                {fahrenheit ? `${weather.current.temp_f}ºF` : `${weather.current.temp_c}ºc`}
             </p>
 
-            <div className='flex flex-row border py-5 bg-[#518490] text-white rounded-xl text-xl w-[60%] mt-8'>
+            <div className='flex flex-row border lg:py-5 py-2  bg-[#518490] text-white rounded-xl w-[80%] lg:text-xl lg:w-[60%] mt-8'>
                <section className="flex-grow border-r">
                   <p className="font-bold">
                      {fahrenheit ? `${weather.current.feelslike_f}ºF` : `${weather.current.feelslike_c}ºc`}

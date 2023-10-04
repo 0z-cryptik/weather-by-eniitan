@@ -232,8 +232,8 @@ export const F1Forecast = () => {
 export const Other = () => {
     const { hour, weather, fahrenheit } = useList()
 
-    return <div className='w-[60%] mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 text-2xl pb-2'>Forecast for the coming hours</h1>
+    return <div className='lg:w-[60%] w-[80%] mt-[2.5rem] lg:mt-[5rem] mx-auto'>
+        <h1 className='border-b-2 lg:text-2xl pb-2'>Forecast for the coming hours</h1>
         <section>
 
             <Card 
