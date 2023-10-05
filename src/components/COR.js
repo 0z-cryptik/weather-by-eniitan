@@ -22,7 +22,7 @@ export const ChanceOfRain = ({val}) => {
         labelAlignment: "right"
     }
 
-    return <div className='flex flex-row md:text-xl mx-auto lg:w-[50%] md:w-[60%] w-[85%] md:mt-[3rem] mt-[1.5rem] '>
+    return <div className='flex flex-row md:text-xl mx-auto lg:w-[50%] md:w-[60%] min-[540px]:w-[80%] w-[85%] md:mt-[3rem] mt-[1.5rem] '>
         <span className="text-sm md:text-xl ml-3">
             Chance of rain today: 
         </span>

@@ -29,7 +29,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
         labelAlignment: "right"
     }
 
-    return <div className={`transition-[max-height] duration-200 ease-in ${openMore ? 'md:max-h-[18rem] max-h-[9.2rem]' : 'lg:max-h-[12.3rem] md:max-h-[11.5rem] max-h-[6.2rem]'} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl  overflow-hidden lg:pt-8 md:pt-6 pt-3`}>
+    return <div className={`transition-[max-height] duration-200 ease-in ${openMore ? 'md:max-h-[18rem] min-[540px]:max-h-[10.5rem] min-[717px]:max-h-[11.5rem]  max-h-[9.2rem]' : 'lg:max-h-[12.3rem] md:max-h-[11.5rem] min-[540px]:max-h-[7.5rem] min-[717px]:max-h-[8.5rem] max-h-[6.2rem]'} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl  overflow-hidden lg:pt-8 md:pt-6 pt-3`}>
         <div className={`flex flex-row ${openMore ? 'pb-3' : 'pb-5'}`}>
             <p className="md:text-xl text-lg font-bold w-1/4 my-auto">{time}</p>
             <div className="flex flex-col w-1/4">
