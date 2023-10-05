@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Weather By Eniitan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Weather By Eniitan is a simple and user-friendly web application that provides current weather information and weather forecasts for your location or any city in the world. It also allows you to toggle between Celsius and Fahrenheit modes, remembering your preference for future visits.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Location-Based Weather:** When you grant permission to access your location, the app will display the current weather and forecasts for that location.
 
-### `npm start`
+- **Default Location:** If you choose not to grant location access, or you have a setting that prevents location access, the app will display the current weather and forecasts for the default location (Accra, Ghana).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Search for Any City:** You can search for any city in the world using the search bar and you will be provided with accurate weather information for that city. You can also search for certain specific popular places.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Temperature Units Toggle:** The site allows you to switch between Celsius and Fahrenheit modes, ensuring that you see temperatures in your preferred unit.
 
-### `npm test`
+- **Remembers Your Preference:** Your selected temperature unit (Celsius or Fahrenheit) will be remembered and applied every time you revisit the site, providing a personalized experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Use
 
-### `npm run build`
+1. **Location Access:** Upon visiting the site for the first time, you will be prompted to grant location access. Choose "Allow" to get weather information for your current location. If you decline, the default location (Accra, Ghana) will be displayed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Search for a City:** If you want to check the weather for a specific city, use the search bar located at the top of the page. Enter the city's name, and the app will fetch the weather data for that location.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Temperature Units:** To switch between Celsius and Fahrenheit modes, simply use the toggle button located on the page. Your preference will be remembered for future visits.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Enjoy the Weather:** Stay informed about the current weather and upcoming forecasts with Weather By Eniitan!
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Weather By Eniitan is built using the following technologies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React.js
+- Tailwind CSS
+- Axios
+- Weather API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Link
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+access the site at [weather-by-eniitan.vercel.app](https://weather-by-eniitan.vercel.app) 
