@@ -62,7 +62,7 @@ const App = () => {
       method: 'GET',
       url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
       params: {
-         q: searchTerm || 'new york',
+         q: searchTerm || 'Accra',
          days: '3'
       },
       headers: {
@@ -108,7 +108,7 @@ const App = () => {
             <center>
                <NavBar />
                <Search onSubmit={onSearchSubmit}/>
-               <div className='h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center text-2xl'>
+               <div className='h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl'>
                   We do not have any data on that location, please crosscheck your spelling or search for another location
                </div>
             </center>
