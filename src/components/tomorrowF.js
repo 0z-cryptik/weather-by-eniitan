@@ -5,7 +5,7 @@ export const TomorrowF = () => {
     const { weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[3.5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for tomorrow</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for tomorrow</h1>
         <section>
             <Card 
                 src={weather.forecast.forecastday[1].hour[10].condition.icon} 

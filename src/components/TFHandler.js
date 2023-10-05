@@ -6,7 +6,7 @@ export const F5Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[2.5rem] md:mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for the next 5 hours</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for the next 5 hours</h1>
         <section>
 
             <Card 
@@ -75,7 +75,7 @@ export const F4Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[2.5rem] md:mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for the next 4 hours</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for the next 4 hours</h1>
         <section>
 
             <Card 
@@ -131,7 +131,7 @@ export const F3Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[2.5rem] md:mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for the next 3 hours</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for the next 3 hours</h1>
         <section>
 
             <Card 
@@ -176,7 +176,7 @@ export const F2Forecast = () => {
     const { hour, weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[2.5rem] md:mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for the next 2 hours</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for the next 2 hours</h1>
         <section>
 
             <Card 
@@ -233,7 +233,7 @@ export const Other = () => {
     const { hour, weather, fahrenheit } = useList()
 
     return <div className='lg:w-[60%] md:w-[80%] w-[90%] mt-[2.5rem] md:mt-[5rem] mx-auto'>
-        <h1 className='border-b-2 md:text-2xl pb-2'>Forecast for the coming hours</h1>
+        <h1 className='border-b-2 md:text-2xl pb-2'>Forecasts for the coming hours</h1>
         <section>
 
             <Card 
