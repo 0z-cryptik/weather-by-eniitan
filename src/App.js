@@ -11,7 +11,7 @@ import { ChanceOfRain } from './components/COR';
 import { Loader } from './components/loader';
 import { Location } from './components/location';
 import { CurrentWeather } from './components/currentWeather';
-import { BadReq, NoNetwork, OtherError } from './components/errorComps';
+import { NoNetwork, OtherError } from './components/errorComps';
 
 const App = () => {
 

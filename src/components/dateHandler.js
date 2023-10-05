@@ -29,7 +29,7 @@ export const DateComp = () => {
         return [simplifiedTime, hour]
     }
 
-    return <p className='lg:mb-5 lg:mt-5 mt-5 mb-3 text-sm lg:text-base'>
+    return <p className='md:mb-5 md:mt-5 mt-5 mb-3 text-sm md:text-base'>
         {dateHandler(weather.location.localtime)[0]}
     </p>
 }

@@ -40,23 +40,23 @@ export const NavBar = () => {
         clickFetch()
     }
 
-    return <nav className="lg:text-2xl text-sm flex flex-row lg:justify-center relative py-6">
-        <span onClick={() => searchWeather('tokyo')} className={`lg:mr-[3rem] mx-[1rem] ${activeCategory == 'tokyo' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+    return <nav className="md:text-2xl text-sm flex flex-row md:justify-center relative py-6">
+        <span onClick={() => searchWeather('tokyo')} className={`md:mr-[3rem] mx-[1rem] ${activeCategory == 'tokyo' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Tokyo
         </span>
-        <span onClick={() => searchWeather('london')} className={`lg:mr-[3rem] mr-[1rem] hidden lg:flex ${activeCategory == 'london' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+        <span onClick={() => searchWeather('london')} className={`md:mr-[3rem] mr-[1rem] hidden lg:flex ${activeCategory == 'london' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             London
         </span>
-        <span onClick={() => searchWeather('paris')} className={`lg:mr-[3rem] mr-[1rem] ${activeCategory == 'paris' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+        <span onClick={() => searchWeather('paris')} className={`md:mr-[3rem] mr-[1rem] ${activeCategory == 'paris' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Paris
         </span>
-        <span onClick={() => searchWeather('sydney')} className={`lg:mr-[3rem] mr-[1rem] ${activeCategory == 'sydney' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+        <span onClick={() => searchWeather('sydney')} className={`md:mr-[3rem] mr-[1rem] ${activeCategory == 'sydney' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Sydney
         </span>
-        <span onClick={() => searchWeather('istanbul')} className={`lg:mr-[3rem] ${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
+        <span onClick={() => searchWeather('istanbul')} className={`md:mr-[3rem] ${activeCategory == 'istanbul' ? 'text-[#004346]' : 'hover:text-[#004346]'} cursor-pointer`}>
             Istanbul
         </span>
-        <span className="absolute right-8 top-6 lg:right-[5%] lg:top-7">
+        <span className="absolute right-8 top-6 md:right-[5%] md:top-7">
             <ToggleButton value = {fahrenheit} onToggle={() => setFahrenheit(!fahrenheit)} activeLabel='ºC' inactiveLabel='ºF'       colors={{
                 activeThumb: {
                     base: 'rgb(62,130,247)',
