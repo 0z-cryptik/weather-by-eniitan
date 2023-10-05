@@ -103,17 +103,21 @@ const App = () => {
    } 
 
    if (error){
-      if (error.response.status == 400) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden'>
-         <center>
-            <NavBar />
-            <Search onSubmit={onSearchSubmit}/>
-            <div className='h-[75.2vh] flex items-center justify-center text-2xl'>
-              We do not have any data on that location, please crosscheck your spelling or search for another location
-            </div>
-         </center>
-      </div>
+      if (error.response){
+         if (error.response.status == 400) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden'>
+            <center>
+               <NavBar />
+               <Search onSubmit={onSearchSubmit}/>
+               <div className='h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center text-2xl'>
+                  We do not have any data on that location, please crosscheck your spelling or search for another location
+               </div>
+            </center>
+         </div>
+      }
 
-      if (error.code == "ERR_NETWORK") return <NoNetwork />
+      if (error.code) {
+         if (error.code == "ERR_NETWORK") return <NoNetwork />
+      }
 
       return <OtherError />
    }
