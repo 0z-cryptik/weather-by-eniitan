@@ -30,22 +30,37 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
     }
 
     return <div className={`transition-[max-height] duration-200 ease-in ${openMore ? 'md:max-h-[18rem] min-[540px]:max-h-[10.5rem] min-[717px]:max-h-[11.5rem]  max-h-[9.2rem]' : 'lg:max-h-[12.3rem] md:max-h-[11.5rem] min-[540px]:max-h-[7.5rem] min-[717px]:max-h-[8.5rem] max-h-[6.2rem]'} w-full relative border mt-2 text-center bg-[#004346] text-white rounded-xl  overflow-hidden lg:pt-8 md:pt-6 pt-3`}>
+
         <div className={`flex flex-row ${openMore ? 'pb-3' : 'pb-5'}`}>
-            <p className="md:text-xl text-lg font-bold w-1/4 my-auto">{time}</p>
+
+            <p className="md:text-xl text-lg font-bold w-1/4 my-auto">
+                {time}
+            </p>
+
             <div className="flex flex-col w-1/4">
                 <img src={src} className="w-[40%] lg:w-[30%] mx-auto" />
-                <p className="md:text-sm hidden md:block text-xs">{condition}</p>
+                <p className="md:text-sm hidden md:block text-xs">
+                    {condition}
+                </p>
+
                 <p className="md:mt-2 md:text-xl text-lg">
                     {deg}º{`${fahrenheit ? 'F' : 'c'}`}
                 </p>
             </div>
+
             <div className="flex-grow hidden md:block my-auto ml-3">
-                <p className="text-left text-base ml-3">chance of rain:</p>
+                <p className="text-left text-base ml-3">
+                    chance of rain:
+                </p>
+
                 <ProgressBar value={cor} options={barStyle} />
             </div>
 
             <div className="flex-grow block md:hidden my-auto ml-3">
-                <p className="text-left text-xs ml-3">chance of rain:</p>
+                <p className="text-left text-xs ml-3">
+                    chance of rain:
+                </p>
+                
                 <ProgressBar value={cor} options={phoneBarStyle} />
             </div>
         </div>
@@ -54,6 +69,7 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
 
         <div id="extra" className={`flex flex-row mb-10 ${openMore ? '' : 'opacity-0'}`}>
             <span className="w-1/3 flex flex-col lg:block text-center text-xs md:text-base">
+
                 <span className="order-2">
                     <GiWhirlwind className="inline mr-1"/>
                     Wind speed
@@ -61,12 +77,15 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                         :
                     </span>
                 </span>
+
                 <span className="order-1">
                     {windSpeed}km/h
                 </span>
+
             </span>
 
             <span className="w-1/3 flex flex-col lg:block text-center text-xs md:text-base">
+
                 <span className="order-2">
                     <IoThermometer className="inline" />
                     Real-feel
@@ -74,12 +93,15 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                         :
                     </span>
                 </span>
+
                 <span className="order-1">
                     {realFeel}º{`${fahrenheit ? 'F' : 'c'}`}
                 </span>
+
             </span>
 
             <span className="w-1/3 flex flex-col lg:block text-center text-xs md:text-base">
+                
                 <span className="order-2">
                     <IoWaterSharp className="inline" />
                     Humidity
@@ -87,10 +109,14 @@ export const Card = ({time, src, condition, deg, cor, windSpeed, realFeel, humid
                         :
                     </span>
                 </span>
+
                 <span className="order-1">
                     {humidity}%
                 </span>
+
             </span>
+            
         </div>
+
     </div>
 }

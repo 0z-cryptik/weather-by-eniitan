@@ -41,12 +41,10 @@ const App = () => {
       let locationFetch = async() => {
          try {
             const response = await axios.request(weatherReq)
-            console.log(response.data)
             setWeather(response.data)
             setLoading(false)
          } catch (error) {
             setError(error)
-            console.error(error);
             setLoading(false)
          }
       }
@@ -75,24 +73,23 @@ const App = () => {
       setActiveCategory('')
       try {
          const response = await axios.request(options);
-         console.log(response.data);
          setWeather(response.data)
          setLoading(false)
       } catch (error) {
          setError(error)
-         console.error(error);
          setLoading(false)
       }
    }
 
    const onSearchSubmit = async (e) => {
+
       e.preventDefault()
       setError('')
       setLoading(true)
       setActiveCategory('')
+
       try {
          const response = await axios.request(options);
-         console.log(response.data);
          setWeather(response.data)
          setLoading(false)
       } catch (error) {
@@ -100,6 +97,7 @@ const App = () => {
          console.error(error);
          setLoading(false)
       }
+
    } 
 
    if (error){
@@ -153,6 +151,3 @@ const App = () => {
 
 
 export default App
-
-
-//bg-gradient-to-b from-[#5885AF] via-[#73abfa] to-[#a2b4cb]

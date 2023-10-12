@@ -8,7 +8,9 @@ export const CurrentWeather = () => {
     
     return <div>
         <img className='mt-6' src={weather.current.condition.icon} alt={weather.current.condition.text} />
-        <p className='text-2xl w-[60%]'>{weather.current.condition.text}</p>
+        <p className='text-2xl w-[60%]'>
+            {weather.current.condition.text}
+         </p>
          
         <div className='mt-6'>
             <p className='text-5xl mt-6'>
@@ -16,24 +18,34 @@ export const CurrentWeather = () => {
             </p>
 
             <div className='flex flex-row border md:py-5 py-2 bg-[#518490] text-white rounded-xl w-[80%] md:text-xl text-sm md:w-[60%] mt-8'>
+
                <section className="flex-grow border-r">
                   <p className="font-bold">
                      {fahrenheit ? `${weather.current.feelslike_f}ºF` : `${weather.current.feelslike_c}ºc`}
                   </p>
+
                   <span>
                      <IoThermometer className='inline' />
                      Real feel
                   </span>
                </section>
+
                <section className="flex-grow border-r">
-                  <p className="font-bold">{weather.current.humidity}%</p>
+                  <p className="font-bold">
+                     {weather.current.humidity}%
+                  </p>
+                  
                   <span>
                      <IoWaterSharp className='inline' />
                      Humidity
                   </span>
                </section>
+
                <section className="flex-grow">
-                  <p className="font-bold">{weather.current.wind_kph}km/h</p>
+                  <p className="font-bold">
+                     {weather.current.wind_kph}km/h
+                  </p>
+
                   <span>
                      <GiWhirlwind className='inline mr-1' /> 
                      wind
@@ -43,5 +55,3 @@ export const CurrentWeather = () => {
         </div>
     </div>
 }
-
-//007EA7
