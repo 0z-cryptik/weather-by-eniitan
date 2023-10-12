@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProgressBar } from "ms-react-progress-bar";
 import 'ms-react-progress-bar/dist/ProgressBar.css'
-import { BsChevronDoubleDown, BsChevronDoubleUp } from 'react-icons/bs'
+import { BsChevronDoubleDown } from 'react-icons/bs'
 import { GiWhirlwind } from "react-icons/gi";
 import { IoThermometer, IoWaterSharp } from "react-icons/io5";
 import { useList } from "./stateProvider";
