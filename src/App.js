@@ -1,153 +1,172 @@
-import React, { useEffect } from 'react';
-import './App.css'
-import axios from 'axios'
-import { DateComp } from './components/dateHandler';
-import { NavBar } from './components/navbar';
-import { Search } from './components/search';
-import { useList } from './components/stateProvider';
-import { TodayF } from './components/todayF';
-import { TomorrowF } from './components/tomorrowF';
-import { ChanceOfRain } from './components/COR';
-import { Loader } from './components/loader';
-import { Location } from './components/location';
-import { CurrentWeather } from './components/currentWeather';
-import { NoNetwork, OtherError } from './components/errorComps';
+import React, { useEffect } from "react";
+import "./App.css";
+import axios from "axios";
+import { DateComp } from "./components/dateHandler";
+import { NavBar } from "./components/navbar";
+import { Search } from "./components/search";
+import { useList } from "./components/stateProvider";
+import { TodayF } from "./components/todayF";
+import { TomorrowF } from "./components/tomorrowF";
+import { ChanceOfRain } from "./components/COR";
+import { Loader } from "./components/loader";
+import { Location } from "./components/location";
+import { CurrentWeather } from "./components/currentWeather";
+import { NoNetwork, OtherError } from "./components/errorComps";
 
 const App = () => {
+	const {
+		weather,
+		setWeather,
+		setActiveCategory,
+		loading,
+		setLoading,
+		searchTerm,
+		error,
+		setError,
+	} = useList();
 
-   const { weather, setWeather, setActiveCategory, loading, setLoading, searchTerm, error, setError } = useList()
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition(success, fail);
+	}, []);
 
-   useEffect(() => {
-      navigator.geolocation.getCurrentPosition(success, fail)
-   }, [])
+	const success = (position) => {
+		setLoading(true);
 
-   const success = (position) => {
-      
-      setLoading(true)
+		const weatherReq = {
+			method: "GET",
+			url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+			params: {
+				q: `${position.coords.latitude},${position.coords.longitude}`,
+				days: "3",
+			},
+			headers: {
+				"X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+				"X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+			},
+		};
 
-      const weatherReq = {
-         method: 'GET',
-         url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
-         params: {
-            q: `${position.coords.latitude},${position.coords.longitude}`,
-            days: '3'
-         },
-         headers: {
-            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-         }
-      }
-  
-      let locationFetch = async() => {
-         try {
-            const response = await axios.request(weatherReq)
-            setWeather(response.data)
-            setLoading(false)
-         } catch (error) {
-            setError(error)
-            setLoading(false)
-         }
-      }
-  
-      locationFetch()
-   }
+		let locationFetch = async () => {
+			try {
+				const response = await axios.request(weatherReq);
+				setWeather(response.data);
+				setLoading(false);
+			} catch (error) {
+				setError(error);
+				setLoading(false);
+			}
+		};
 
-   const fail = () => {
-      initialWeatherData()
-   }
+		locationFetch();
+	};
 
-   const options = {
-      method: 'GET',
-      url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
-      params: {
-         q: searchTerm || 'Accra',
-         days: '3'
-      },
-      headers: {
-         'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-         'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-      }
-   }
+	const fail = () => {
+		initialWeatherData();
+	};
 
-   const initialWeatherData = async () => {
-      setActiveCategory('')
-      try {
-         const response = await axios.request(options);
-         setWeather(response.data)
-         setLoading(false)
-      } catch (error) {
-         setError(error)
-         setLoading(false)
-      }
-   }
+	const options = {
+		method: "GET",
+		url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+		params: {
+			q: searchTerm || "Accra",
+			days: "3",
+		},
+		headers: {
+			"X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+			"X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+		},
+	};
 
-   const onSearchSubmit = async (e) => {
+	const initialWeatherData = async () => {
+		setActiveCategory("");
+		try {
+			const response = await axios.request(options);
+			setWeather(response.data);
+			setLoading(false);
+		} catch (error) {
+			setError(error);
+			setLoading(false);
+		}
+	};
 
-      e.preventDefault()
-      setError('')
-      setLoading(true)
-      setActiveCategory('')
+	const onSearchSubmit = async (e) => {
+		e.preventDefault();
+		setError("");
+		setLoading(true);
+		setActiveCategory("");
 
-      try {
-         const response = await axios.request(options);
-         setWeather(response.data)
-         setLoading(false)
-      } catch (error) {
-         setError(error)
-         console.error(error);
-         setLoading(false)
-      }
+		try {
+			const response = await axios.request(options);
+			setWeather(response.data);
+			setLoading(false);
+		} catch (error) {
+			setError(error);
+			console.error(error);
+			setLoading(false);
+		}
+	};
 
-   } 
+	if (error) {
+		if (error.response) {
+			if (error.response.status == 400)
+				return (
+					<div className="bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden">
+						<center>
+							<NavBar />
+							<Search onSubmit={onSearchSubmit} />
+							<div className="h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl">
+								We do not have any data on that location, please
+								crosscheck your spelling or search for another
+								location
+							</div>
+						</center>
+					</div>
+				);
+		}
 
-   if (error){
-      if (error.response){
-         if (error.response.status == 400) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden'>
-            <center>
-               <NavBar />
-               <Search onSubmit={onSearchSubmit}/>
-               <div className='h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl'>
-                  We do not have any data on that location, please crosscheck your spelling or search for another location
-               </div>
-            </center>
-         </div>
-      }
+		if (error.code) {
+			if (error.code == "ERR_NETWORK") return <NoNetwork />;
+		}
 
-      if (error.code) {
-         if (error.code == "ERR_NETWORK") return <NoNetwork />
-      }
+		return <OtherError />;
+	}
 
-      return <OtherError />
-   }
-   
-   if (!weather) return <div className='h-[100vh] w-[100vw] bg-[#395E66]'>
-      <Loader />
-   </div>
- 
-   if (loading) return <div className='bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden'>
-      <center>
-         <NavBar />
-         <Search onSubmit={onSearchSubmit}/>
-         <div className='w-[100vw] h-[75.2vh] flex'>
-            <Loader />
-         </div>
-      </center>
-   </div>
+	if (!weather)
+		return (
+			<div className="h-[100vh] w-[100vw] bg-[#395E66]">
+				<Loader />
+			</div>
+		);
 
-   return <div className='bg-[#395E66] text-white pb-8 '>
-      <center>
-         <NavBar />
-         <Search onSubmit={onSearchSubmit}/>
-         <DateComp />
-         <Location />
-         <CurrentWeather />
-      </center>
+	if (loading)
+		return (
+			<div className="bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden">
+				<center>
+					<NavBar />
+					<Search onSubmit={onSearchSubmit} />
+					<div className="w-[100vw] h-[75.2vh] flex">
+						<Loader />
+					</div>
+				</center>
+			</div>
+		);
 
-      <ChanceOfRain val={weather.forecast.forecastday[0].day.daily_chance_of_rain} />
-      <TodayF />
-      <TomorrowF />
-   </div>
-}
+	return (
+		<div className="bg-[#395E66] text-white pb-8 ">
+			<center>
+				<NavBar />
+				<Search onSubmit={onSearchSubmit} />
+				<DateComp />
+				<Location />
+				<CurrentWeather />
+			</center>
 
+			<ChanceOfRain
+				val={weather.forecast.forecastday[0].day.daily_chance_of_rain}
+			/>
+			<TodayF />
+			<TomorrowF />
+		</div>
+	);
+};
 
-export default App
+export default App;
