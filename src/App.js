@@ -14,159 +14,158 @@ import { CurrentWeather } from "./components/currentWeather";
 import { NoNetwork, OtherError } from "./components/errorComps";
 
 const App = () => {
-	const {
-		weather,
-		setWeather,
-		setActiveCategory,
-		loading,
-		setLoading,
-		searchTerm,
-		error,
-		setError,
-	} = useList();
+  const {
+    weather,
+    setWeather,
+    setActiveCategory,
+    loading,
+    setLoading,
+    searchTerm,
+    error,
+    setError,
+  } = useList();
 
-	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(success, fail);
-	}, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success, fail);
+  }, []);
 
-	const success = (position) => {
-		setLoading(true);
+  const success = (position) => {
+    setLoading(true);
 
-		const weatherReq = {
-			method: "GET",
-			url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-			params: {
-				q: `${position.coords.latitude},${position.coords.longitude}`,
-				days: "3",
-			},
-			headers: {
-				"X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-				"X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-			},
-		};
+    const weatherReq = {
+      method: "GET",
+      url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+      params: {
+        q: `${position.coords.latitude},${position.coords.longitude}`,
+        days: "3",
+      },
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+      },
+    };
 
-		let locationFetch = async () => {
-			try {
-				const response = await axios.request(weatherReq);
-				setWeather(response.data);
-				setLoading(false);
-			} catch (error) {
-				setError(error);
-				setLoading(false);
-			}
-		};
+    let locationFetch = async () => {
+      try {
+        const response = await axios.request(weatherReq);
+        setWeather(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
 
-		locationFetch();
-	};
+    locationFetch();
+  };
 
-	const fail = () => {
-		initialWeatherData();
-	};
+  const fail = () => {
+    initialWeatherData();
+  };
 
-	const options = {
-		method: "GET",
-		url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-		params: {
-			q: searchTerm || "Accra",
-			days: "3",
-		},
-		headers: {
-			"X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-			"X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-		},
-	};
+  const options = {
+    method: "GET",
+    url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+    params: {
+      q: searchTerm || "Accra",
+      days: "3",
+    },
+    headers: {
+      "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+      "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+    },
+  };
 
-	const initialWeatherData = async () => {
-		setActiveCategory("");
-		try {
-			const response = await axios.request(options);
-			setWeather(response.data);
-			setLoading(false);
-		} catch (error) {
-			setError(error);
-			setLoading(false);
-		}
-	};
+  const initialWeatherData = async () => {
+    setActiveCategory("");
+    try {
+      const response = await axios.request(options);
+      setWeather(response.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
 
-	const onSearchSubmit = async (e) => {
-		e.preventDefault();
-		setError("");
-		setLoading(true);
-		setActiveCategory("");
+  const onSearchSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    setActiveCategory("");
 
-		try {
-			const response = await axios.request(options);
-			setWeather(response.data);
-			setLoading(false);
-		} catch (error) {
-			setError(error);
-			console.error(error);
-			setLoading(false);
-		}
-	};
+    try {
+      const response = await axios.request(options);
+      setWeather(response.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      console.error(error);
+      setLoading(false);
+    }
+  };
 
-	if (error) {
-		if (error.response) {
-			if (error.response.status == 400)
-				return (
-					<div className="bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden">
-						<center>
-							<NavBar />
-							<Search onSubmit={onSearchSubmit} />
-							<div className="h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl">
-								We do not have any data on that location, please
-								crosscheck your spelling or search for another
-								location
-							</div>
-						</center>
-					</div>
-				);
-		}
+  if (error) {
+    if (error.response) {
+      if (error.response.status == 400)
+        return (
+          <div className="bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden">
+            <center>
+              <NavBar />
+              <Search onSubmit={onSearchSubmit} />
+              <div className="h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl">
+                We do not have any data on that location, please crosscheck
+                your spelling or search for another location
+              </div>
+            </center>
+          </div>
+        );
+    }
 
-		if (error.code) {
-			if (error.code == "ERR_NETWORK") return <NoNetwork />;
-		}
+    if (error.code) {
+      if (error.code == "ERR_NETWORK") return <NoNetwork />;
+    }
 
-		return <OtherError />;
-	}
+    return <OtherError />;
+  }
 
-	if (!weather)
-		return (
-			<div className="h-[100vh] w-[100vw] bg-[#395E66]">
-				<Loader />
-			</div>
-		);
+  if (!weather)
+    return (
+      <div className="h-[100vh] w-[100vw] bg-[#395E66]">
+        <Loader />
+      </div>
+    );
 
-	if (loading)
-		return (
-			<div className="bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden">
-				<center>
-					<NavBar />
-					<Search onSubmit={onSearchSubmit} />
-					<div className="w-[100vw] h-[75.2vh] flex">
-						<Loader />
-					</div>
-				</center>
-			</div>
-		);
+  if (loading)
+    return (
+      <div className="bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden">
+        <center>
+          <NavBar />
+          <Search onSubmit={onSearchSubmit} />
+          <div className="w-[100vw] h-[75.2vh] flex">
+            <Loader />
+          </div>
+        </center>
+      </div>
+    );
 
-	return (
-		<div className="bg-[#395E66] text-white pb-8 ">
-			<center>
-				<NavBar />
-				<Search onSubmit={onSearchSubmit} />
-				<DateComp />
-				<Location />
-				<CurrentWeather />
-			</center>
+  return (
+    <div className="bg-[#395E66] text-white pb-8 ">
+      <center>
+        <NavBar />
+        <Search onSubmit={onSearchSubmit} />
+        <DateComp />
+        <Location />
+        <CurrentWeather />
+      </center>
 
-			<ChanceOfRain
-				val={weather.forecast.forecastday[0].day.daily_chance_of_rain}
-			/>
-			<TodayF />
-			<TomorrowF />
-		</div>
-	);
+      <ChanceOfRain
+        val={weather.forecast.forecastday[0].day.daily_chance_of_rain}
+      />
+      <TodayF />
+      <TomorrowF />
+    </div>
+  );
 };
 
 export default App;

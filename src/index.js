@@ -7,11 +7,11 @@ import { StateProvider } from "./components/stateProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<React.StrictMode>
-		<StateProvider>
-			<App />
-		</StateProvider>
-	</React.StrictMode>
+  <React.StrictMode>
+    <StateProvider>
+      <App />
+    </StateProvider>
+  </React.StrictMode>
 );
 
 reportWebVitals();
