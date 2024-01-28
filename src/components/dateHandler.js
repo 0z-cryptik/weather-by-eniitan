@@ -5,12 +5,8 @@ export const DateComp = () => {
   const { weather, setHour } = useList();
 
   useEffect(() => {
-    hourHandler(dateHandler(weather.location.localtime)[1]);
+    setHour(dateHandler(weather.location.localtime)[1]);
   }, []);
-
-  const hourHandler = (hour) => {
-    setHour(hour);
-  };
 
   const dateHandler = (date) => {
     const dateObj = new Date(date);

@@ -22,32 +22,37 @@ const App = () => {
     setLoading,
     searchTerm,
     error,
-    setError,
+    setError
   } = useList();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, fail);
   }, []);
 
-  const success = (position) => {
-    setLoading(true);
-
+  const reqFunc = (query) => {
     const weatherReq = {
       method: "GET",
       url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
       params: {
-        q: `${position.coords.latitude},${position.coords.longitude}`,
-        days: "3",
+        q: query,
+        days: "3"
       },
       headers: {
         "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-      },
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
+      }
     };
 
+    return weatherReq
+  };
+
+  const success = (position) => {
+    setLoading(true);
+
     let locationFetch = async () => {
+      const location = `${position.coords.latitude},${position.coords.longitude}`
       try {
-        const response = await axios.request(weatherReq);
+        const response = await axios.request(reqFunc(location));
         setWeather(response.data);
         setLoading(false);
       } catch (error) {
@@ -63,23 +68,9 @@ const App = () => {
     initialWeatherData();
   };
 
-  const options = {
-    method: "GET",
-    url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-    params: {
-      q: searchTerm || "Accra",
-      days: "3",
-    },
-    headers: {
-      "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-      "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-    },
-  };
-
   const initialWeatherData = async () => {
-    setActiveCategory("");
     try {
-      const response = await axios.request(options);
+      const response = await axios.request(reqFunc('Accra'));
       setWeather(response.data);
       setLoading(false);
     } catch (error) {
@@ -95,8 +86,9 @@ const App = () => {
     setActiveCategory("");
 
     try {
-      const response = await axios.request(options);
+      const response = await axios.request(reqFunc(searchTerm));
       setWeather(response.data);
+      console.log(response.data)
       setLoading(false);
     } catch (error) {
       setError(error);
