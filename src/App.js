@@ -11,7 +11,7 @@ import { ChanceOfRain } from "./components/COR";
 import { Loader } from "./components/loader";
 import { Location } from "./components/location";
 import { CurrentWeather } from "./components/currentWeather";
-import { NoNetwork, OtherError } from "./components/errorComps";
+import { NoNetwork, NotFound, OtherError } from "./components/errorComps";
 import { reqFunc } from "./components/requestHandler";
 
 const App = () => {
@@ -64,39 +64,12 @@ const App = () => {
     }
   };
 
-  const onSearchSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    setActiveCategory("");
-
-    try {
-      const response = await axios.request(reqFunc(searchTerm));
-      setWeather(response.data);
-      console.log(response.data)
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      console.error(error);
-      setLoading(false);
-    }
-  };
+  
 
   if (error) {
     if (error.response) {
       if (error.response.status == 400)
-        return (
-          <div className="bg-[#395E66] h-[100vh] w-[100vw] text-white overflow-hidden">
-            <center>
-              <NavBar />
-              <Search onSubmit={onSearchSubmit} />
-              <div className="h-[75.2vh] md:w-[80%] lg:w-[70%] flex items-center justify-center md:text-2xl">
-                We do not have any data on that location, please crosscheck
-                your spelling or search for another location
-              </div>
-            </center>
-          </div>
-        );
+        return <NotFound />
     }
 
     if (error.code) {
@@ -118,7 +91,7 @@ const App = () => {
       <div className="bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden">
         <center>
           <NavBar />
-          <Search onSubmit={onSearchSubmit} />
+          <Search />
           <div className="w-[100vw] h-[75.2vh] flex">
             <Loader />
           </div>
@@ -130,7 +103,7 @@ const App = () => {
     <div className="bg-[#395E66] text-white pb-8 ">
       <center>
         <NavBar />
-        <Search onSubmit={onSearchSubmit} />
+        <Search />
         <DateComp />
         <Location />
         <CurrentWeather />

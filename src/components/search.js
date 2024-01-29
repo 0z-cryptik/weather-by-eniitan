@@ -1,16 +1,43 @@
 import { FaSearch } from "react-icons/fa";
 import { useList } from "./stateProvider";
 import { useRef } from "react";
+import axios from "axios";
+import { reqFunc } from "./requestHandler";
 
-export const Search = ({ onSubmit }) => {
-  const { searchTerm, setSearchTerm } = useList();
+export const Search = () => {
+  const {
+    searchTerm,
+    setSearchTerm,
+    setWeather,
+    setLoading,
+    setError,
+    setActiveCategory
+  } = useList();
+
+  const onSearchSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    setActiveCategory("");
+
+    try {
+      const response = await axios.request(reqFunc(searchTerm));
+      setWeather(response.data);
+      console.log(response.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      console.error(error);
+      setLoading(false);
+    }
+  };
 
   const text = useRef();
 
   const onSearchchange = (e) => setSearchTerm(e.target.value);
 
   const submitHandler = (e) => {
-    onSubmit(e);
+    onSearchSubmit(e);
     text.current.blur();
   };
 
