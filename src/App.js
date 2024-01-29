@@ -12,6 +12,7 @@ import { Loader } from "./components/loader";
 import { Location } from "./components/location";
 import { CurrentWeather } from "./components/currentWeather";
 import { NoNetwork, OtherError } from "./components/errorComps";
+import { reqFunc } from "./components/requestHandler";
 
 const App = () => {
   const {
@@ -28,23 +29,6 @@ const App = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success, fail);
   }, []);
-
-  const reqFunc = (query) => {
-    const weatherReq = {
-      method: "GET",
-      url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-      params: {
-        q: query,
-        days: "3"
-      },
-      headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
-      }
-    };
-
-    return weatherReq
-  };
 
   const success = (position) => {
     setLoading(true);
@@ -70,8 +54,9 @@ const App = () => {
 
   const initialWeatherData = async () => {
     try {
-      const response = await axios.request(reqFunc('Accra'));
+      const response = await axios.request(reqFunc('accra'));
       setWeather(response.data);
+      console.log(response.data)
       setLoading(false);
     } catch (error) {
       setError(error);

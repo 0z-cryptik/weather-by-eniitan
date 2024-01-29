@@ -1,6 +1,7 @@
 import { useList } from "./stateProvider";
 import axios from "axios";
 import ToggleButton from "react-toggle-button";
+import { reqFunc } from "./requestHandler";
 
 export const NavBar = () => {
   const {
@@ -20,22 +21,9 @@ export const NavBar = () => {
     setLoading(true);
     setSearchTerm(place);
 
-    const weatherReq = {
-      method: "GET",
-      url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-      params: {
-        q: place,
-        days: "3",
-      },
-      headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-      },
-    };
-
     let clickFetch = async () => {
       try {
-        const response = await axios.request(weatherReq);
+        const response = await axios.request(reqFunc(place));
         setWeather(response.data);
         setLoading(false);
       } catch (error) {
