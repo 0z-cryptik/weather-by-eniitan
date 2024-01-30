@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { useList } from "./stateProvider";
 import { useRef } from "react";
 import axios from "axios";
-import { reqFunc } from "./requestHandler";
+import { reqFunc } from "../functions/requestHandler";
 
 export const Search = () => {
   const {

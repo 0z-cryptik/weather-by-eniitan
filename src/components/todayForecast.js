@@ -6,7 +6,7 @@ import {
   F4Forecast,
   F5Forecast,
   Other,
-} from "./TFHandler";
+} from "./Forecasts";
 
 export const TodayF = () => {
   const { hour } = useList();

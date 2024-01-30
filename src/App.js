@@ -1,18 +1,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import { DateComp } from "./components/dateHandler";
-import { NavBar } from "./components/navbar";
-import { Search } from "./components/search";
 import { useList } from "./components/stateProvider";
-import { TodayF } from "./components/todayF";
-import { TomorrowF } from "./components/tomorrowF";
-import { ChanceOfRain } from "./components/COR";
-import { Loader } from "./components/loader";
-import { Location } from "./components/location";
-import { CurrentWeather } from "./components/currentWeather";
 import { NoNetwork, NotFound, OtherError } from "./components/errorComps";
-import { reqFunc } from "./components/requestHandler";
+import { reqFunc } from "./functions/requestHandler";
+import { InitialLoader } from "./components/initialLoader";
+import { NewSearchLoader } from "./components/newSearchLoader";
+import { WeatherDetails } from "./components/weatherDetails";
 
 const App = () => {
   const {
@@ -34,7 +28,7 @@ const App = () => {
     setLoading(true);
 
     let locationFetch = async () => {
-      const location = `${position.coords.latitude},${position.coords.longitude}`
+      const location = `${position.coords.latitude},${position.coords.longitude}`;
       try {
         const response = await axios.request(reqFunc(location));
         setWeather(response.data);
@@ -54,9 +48,8 @@ const App = () => {
 
   const initialWeatherData = async () => {
     try {
-      const response = await axios.request(reqFunc('accra'));
+      const response = await axios.request(reqFunc("accra"));
       setWeather(response.data);
-      console.log(response.data)
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -64,12 +57,9 @@ const App = () => {
     }
   };
 
-  
-
   if (error) {
     if (error.response) {
-      if (error.response.status == 400)
-        return <NotFound />
+      if (error.response.status == 400) return <NotFound />;
     }
 
     if (error.code) {
@@ -79,43 +69,11 @@ const App = () => {
     return <OtherError />;
   }
 
-  if (!weather)
-    return (
-      <div className="h-[100vh] w-[100vw] bg-[#395E66]">
-        <Loader />
-      </div>
-    );
+  if (!weather) return <InitialLoader />;
 
-  if (loading)
-    return (
-      <div className="bg-[#395E66] h-[100vh] w-[100vw] text-white pb-8 overflow-hidden">
-        <center>
-          <NavBar />
-          <Search />
-          <div className="w-[100vw] h-[75.2vh] flex">
-            <Loader />
-          </div>
-        </center>
-      </div>
-    );
+  if (loading) return <NewSearchLoader />;
 
-  return (
-    <div className="bg-[#395E66] text-white pb-8 ">
-      <center>
-        <NavBar />
-        <Search />
-        <DateComp />
-        <Location />
-        <CurrentWeather />
-      </center>
-
-      <ChanceOfRain
-        val={weather.forecast.forecastday[0].day.daily_chance_of_rain}
-      />
-      <TodayF />
-      <TomorrowF />
-    </div>
-  );
+  return <WeatherDetails />;
 };
 
 export default App;

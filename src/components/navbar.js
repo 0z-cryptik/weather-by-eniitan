@@ -1,7 +1,7 @@
 import { useList } from "./stateProvider";
 import axios from "axios";
 import ToggleButton from "react-toggle-button";
-import { reqFunc } from "./requestHandler";
+import { reqFunc } from "../functions/requestHandler";
 
 export const NavBar = () => {
   const {
@@ -12,7 +12,7 @@ export const NavBar = () => {
     setSearchTerm,
     fahrenheit,
     setFahrenheit,
-    setError,
+    setError
   } = useList();
 
   const searchWeather = (place) => {
@@ -95,19 +95,19 @@ export const NavBar = () => {
           inactiveLabel="ºF"
           colors={{
             activeThumb: {
-              base: "rgb(62,130,247)",
+              base: "rgb(62,130,247)"
             },
             inactiveThumb: {
-              base: "rgb(62,130,247)",
+              base: "rgb(62,130,247)"
             },
             active: {
               base: "rgb(65,66,68)",
-              hover: "rgb(65,66,68)",
+              hover: "rgb(65,66,68)"
             },
             inactive: {
               base: "rgb(65,66,68)",
-              hover: "rgb(65,66,68)",
-            },
+              hover: "rgb(65,66,68)"
+            }
           }}
         />
       </span>
