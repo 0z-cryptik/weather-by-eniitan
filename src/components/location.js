@@ -1,4 +1,4 @@
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 
 export const Location = () => {
   const { weather } = useList();

@@ -4,7 +4,7 @@ import "ms-react-progress-bar/dist/ProgressBar.css";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { GiWhirlwind } from "react-icons/gi";
 import { IoThermometer, IoWaterSharp } from "react-icons/io5";
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 
 export const Card = ({
   time,
@@ -14,7 +14,7 @@ export const Card = ({
   cor,
   windSpeed,
   realFeel,
-  humidity,
+  humidity
 }) => {
   const { fahrenheit } = useList();
   const [openMore, setOpenMore] = useState(false);
@@ -25,7 +25,7 @@ export const Card = ({
     labelSize: "12px",
     barColor: "rgb(59 130 246)",
     containerColor: "#dddddd",
-    labelAlignment: "right",
+    labelAlignment: "right"
   };
 
   const phoneBarStyle = {
@@ -34,7 +34,7 @@ export const Card = ({
     labelSize: "9px",
     barColor: "rgb(59 130 246)",
     containerColor: "#dddddd",
-    labelAlignment: "right",
+    labelAlignment: "right"
   };
 
   return (

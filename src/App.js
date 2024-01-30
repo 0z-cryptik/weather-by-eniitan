@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import { useList } from "./components/stateProvider";
+import { useList } from "./hooks/stateProvider";
 import { NoNetwork, NotFound, OtherError } from "./components/errorComps";
 import { reqFunc } from "./functions/requestHandler";
 import { InitialLoader } from "./components/initialLoader";

@@ -1,4 +1,4 @@
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import React, { useEffect } from "react";
 
 export const DateComp = () => {
@@ -20,7 +20,7 @@ export const DateComp = () => {
       "Wednesday",
       "Thursday",
       "Friday",
-      "Saturday",
+      "Saturday"
     ];
     const month = dateObj.getMonth();
     const monthArr = [
@@ -35,7 +35,7 @@ export const DateComp = () => {
       "September",
       "October",
       "November",
-      "December",
+      "December"
     ];
     const hour = dateObj.getHours();
     const minute = dateObj.getMinutes();

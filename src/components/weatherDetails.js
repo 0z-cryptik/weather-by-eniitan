@@ -1,4 +1,4 @@
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import { NavBar } from "./navbar";
 import { DateComp } from "./dateHandler";
 import { Search } from "./search";

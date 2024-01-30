@@ -1,4 +1,4 @@
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import { IoThermometer, IoWaterSharp } from "react-icons/io5";
 import { GiWhirlwind } from "react-icons/gi";
 

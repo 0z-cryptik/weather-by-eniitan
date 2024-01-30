@@ -1,4 +1,4 @@
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import axios from "axios";
 import ToggleButton from "react-toggle-button";
 import { reqFunc } from "../functions/requestHandler";

@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import { useRef } from "react";
 import axios from "axios";
 import { reqFunc } from "../functions/requestHandler";

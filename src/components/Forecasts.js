@@ -1,5 +1,5 @@
 import React from "react";
-import { useList } from "./stateProvider";
+import { useList } from "../hooks/stateProvider";
 import { Card } from "./card";
 
 const Forecast = ({ title, hours }) => {
@@ -13,12 +13,12 @@ const Forecast = ({ title, hours }) => {
           <Card
             key={i}
             src={
-              weather.forecast.forecastday[0].hour[hour + i + 1]
-                .condition.icon
+              weather.forecast.forecastday[0].hour[hour + i + 1].condition
+                .icon
             }
             condition={
-              weather.forecast.forecastday[0].hour[hour + i + 1]
-                .condition.text
+              weather.forecast.forecastday[0].hour[hour + i + 1].condition
+                .text
             }
             time={`${hour + i + 1}:00`}
             deg={
@@ -48,12 +48,10 @@ const Forecast = ({ title, hours }) => {
                   }`
             }
             windSpeed={
-              weather.forecast.forecastday[0].hour[hour + i + 1]
-                .wind_kph
+              weather.forecast.forecastday[0].hour[hour + i + 1].wind_kph
             }
             humidity={
-              weather.forecast.forecastday[0].hour[hour + i + 1]
-                .humidity
+              weather.forecast.forecastday[0].hour[hour + i + 1].humidity
             }
           />
         ))}

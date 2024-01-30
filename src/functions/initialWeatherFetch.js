@@ -1,4 +1,4 @@
-import { useList } from "../components/stateProvider";
+import { useList } from "../hooks/stateProvider";
 
 export const initialWeatherFetch = async () => {
   const { setError, setWeather, setLoading } = useList();

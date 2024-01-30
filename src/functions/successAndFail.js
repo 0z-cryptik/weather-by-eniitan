@@ -1,5 +1,5 @@
 import { initialWeatherFetch } from "./initialWeatherFetch";
-import { useList } from "../components/stateProvider";
+import { useList } from "../hooks/stateProvider";
 import { reqFunc } from "./requestHandler";
 
 export const success = (position) => {
